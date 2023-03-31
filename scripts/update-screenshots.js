@@ -15,18 +15,19 @@ const argv = yargs(process.argv.slice(2))
 		describe: "Output directory for the files.",
 		alias: "o",
 		type: "string",
-		default: "./screenshots/golden/",
+		default: "./",
 	})
 	.option("scenario", {
 		describe: "The name of one scenario to run.",
 		alias: "s",
 		type: "string",
+		default: "khronos-SheenChair",
 	})
 	.option("headless", {
 		describe: "Whether to run in a headless mode.",
 		alias: "h",
 		type: "boolean",
-		default: false,
+		default: true,
 	}).argv;
 
 (async () => {
