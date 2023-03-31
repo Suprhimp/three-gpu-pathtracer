@@ -21,7 +21,7 @@ const argv = yargs(process.argv.slice(2))
 		describe: "The name of one scenario to run.",
 		alias: "s",
 		type: "string",
-		default: "khronos-SheenChair",
+		default: "khronos-MaterialsVariantsShoe",
 	})
 	.option("headless", {
 		describe: "Whether to run in a headless mode.",
