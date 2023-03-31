@@ -27,7 +27,7 @@ const argv = yargs(process.argv.slice(2))
 		describe: "Whether to run in a headless mode.",
 		alias: "h",
 		type: "boolean",
-		default: true,
+		default: false,
 	}).argv;
 
 (async () => {
