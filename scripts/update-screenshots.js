@@ -94,10 +94,30 @@ async function saveScreenshot(scenario, targetFolder) {
 	});
 
 	const page = await browser.newPage();
+	const collectData = async (page) => {
+		try {
+			await page.goto(
+				`http://localhost:1234/viewerTest.html?hideUI=true&tiles=1#${name}`
+			);
+			return page.evaluate(() => document.title);
+		} catch (err) {
+			console.error(err.message);
+			return false;
+		}
+	};
 
-	await page.goto(
-		`http://localhost:1234/viewerTest.html?hideUI=true&tiles=1#${name}`
-	);
+	let data = false;
+	let attempts = 0;
+
+	// Retry request until it gets data or tries 5 times
+	while (data === false && attempts < 5) {
+		data = await collectData(page);
+		attempts += 1;
+		if (data === false) {
+			// Wait a few seconds, also a good idea to swap proxy here*
+			await new Promise((resolve) => setTimeout(resolve, 3000));
+		}
+	}
 
 	try {
 		const startTime = performance.now();
