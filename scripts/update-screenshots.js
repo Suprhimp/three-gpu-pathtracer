@@ -96,7 +96,7 @@ async function saveScreenshot(scenario, targetFolder) {
 	const page = await browser.newPage();
 
 	await page.goto(
-		`http://localhost:1234/viewerTest.html?hideUI=true&tiles=1&samples=${SAMPLES}#${name}`
+		`http://localhost:1234/viewerTest.html?hideUI=true&tiles=1#${name}`
 	);
 
 	try {
