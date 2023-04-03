@@ -21,7 +21,7 @@ const argv = yargs(process.argv.slice(2))
 		describe: "The name of one scenario to run.",
 		alias: "s",
 		type: "string",
-		default: "khronos-SheenChair",
+		default: "khronos-MaterialsVariantsShoe",
 	})
 	.option("headless", {
 		describe: "Whether to run in a headless mode.",
@@ -80,7 +80,9 @@ async function saveScreenshot(scenario, targetFolder) {
 		scenario.dimensions
 	);
 
-	const args = argv.headless ? ["--use-gl=egl", "--headless"] : [];
+	const args = argv.headless
+		? ["--use-gl=egl", "--headless", "--no-sandbox"]
+		: [];
 	const browser = await puppeteer.launch({
 		defaultViewport: {
 			width: dimensions.width,
