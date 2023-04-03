@@ -94,6 +94,8 @@ async function saveScreenshot(scenario, targetFolder) {
 	});
 
 	const page = await browser.newPage();
+	await page.setDefaultNavigationTimeout(0);
+
 	const collectData = async (page) => {
 		try {
 			await page.goto(
