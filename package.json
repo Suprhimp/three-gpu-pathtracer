@@ -72,5 +72,8 @@
 	"homepage": "https://github.com/gkjohnson/three-gpu-pathtracer#readme",
 	"resolutions": {
 		"node-gyp-build-optional-packages": "4.3.4"
+	},
+	"overrides": {
+		"lmdb": "2.6.0"
 	}
 }
