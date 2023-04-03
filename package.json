@@ -73,6 +73,9 @@
 	"resolutions": {
 		"node-gyp-build-optional-packages": "4.3.4"
 	},
+	"engines": {
+		"node": "10.x"
+	},
 	"overrides": {
 		"lmdb": "2.6.0"
 	}
