@@ -80,7 +80,9 @@ async function saveScreenshot(scenario, targetFolder) {
 		scenario.dimensions
 	);
 
-	const args = argv.headless ? ["--use-gl=egl", "--headless"] : [];
+	const args = argv.headless
+		? ["--use-gl=egl", "--headless", "--no-sandbox"]
+		: [];
 	const browser = await puppeteer.launch({
 		defaultViewport: {
 			width: dimensions.width,
